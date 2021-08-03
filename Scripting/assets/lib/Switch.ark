@@ -1,0 +1,15 @@
+(let switch (fun (value _tests) {
+    (mut _acc 0)
+    (let _end (len _tests))
+
+    (while (!= _acc _end) {
+        (mut _r (@ _tests _acc))
+        (mut _bis (@ _r 0))
+        (if (= _bis value)
+            {
+                ((@ _r 1))
+                (set _acc (- _end 1))
+            })
+        (set _acc (+ 1 _acc))
+    })
+}))

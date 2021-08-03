@@ -1,0 +1,4 @@
+build/
+SGL/
+*.arkc
+__arkscript__/
