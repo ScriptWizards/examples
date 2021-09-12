@@ -2,3 +2,5 @@ build/
 SGL/
 *.arkc
 __arkscript__/
+*.dll
+imgui.ini

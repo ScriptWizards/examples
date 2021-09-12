@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  BUILD_TYPE: Release
+  CC: gcc-8
+  CXX: g++-8
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: "Ubuntu Latest GCC"
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+        token: ${{ secrets.PAT }}
+
+    - name: Update compilers
+      shell: bash
+      run: |
+        sudo apt-add-repository -y ppa:ubuntu-toolchain-r/test
+        sudo apt-get -yq install g++-8 gcc-8
+
+    - name: OpenGL / SFML install
+      run: |
+        wget -O sfml.tar.gz https://www.sfml-dev.org/files/SFML-2.5.1-linux-gcc-64-bit.tar.gz
+        mkdir -p sfml
+        tar -xzf sfml.tar.gz -C sfml
+        sudo apt-get -y install freeglut3-dev
+
+    - name: Configure CMake
+      shell: bash
+      run: |
+        for path in Basic Disney Planet Scripting Tilemap View Widgets; do
+          cd $path
+          cmake -Bbuild -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_C_COMPILER=$CC -DCMAKE_CXX_COMPILER=$CXX -DSFML_ROOT=sfml/SFML-2.5.1/lib/cmake/SFML
+          cd ..
+        done
+
+    - name: Build
+      shell: bash
+      run: cmake --build build --config $BUILD_TYPE
