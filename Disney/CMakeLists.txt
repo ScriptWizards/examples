@@ -8,7 +8,7 @@ if(MSVC)
 endif()
 
 # SGL
-add_subdirectory(${PROJECT_SOURCE_DIR}/../../ ${PROJECT_SOURCE_DIR}/SGL)
+add_subdirectory(${PROJECT_SOURCE_DIR}/../SmallGameLibrary ${PROJECT_SOURCE_DIR}/SGL)
 
 # search for source files
 file(GLOB_RECURSE SOURCE_FILES ${PROJECT_SOURCE_DIR}/source/*.cpp)
