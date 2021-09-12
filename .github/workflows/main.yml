@@ -40,7 +40,7 @@ jobs:
       run: |
         for path in Basic Disney Planet Scripting Tilemap View Widgets; do
           cd $path
-          cmake -Bbuild -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_C_COMPILER=$CC -DCMAKE_CXX_COMPILER=$CXX -DSFML_ROOT=sfml/SFML-2.5.1/lib/cmake/SFML
+          cmake -Bbuild -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_C_COMPILER=$CC -DCMAKE_CXX_COMPILER=$CXX -DSFML_ROOT=../sfml/SFML-2.5.1/lib/cmake/SFML
           cmake --build build --config $BUILD_TYPE
           cd ..
         done
