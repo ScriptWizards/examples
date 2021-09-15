@@ -9,7 +9,7 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/../SmallGameLibrary ${PROJECT_SOURCE_DIR}
 file(GLOB_RECURSE SOURCE_FILES ${PROJECT_SOURCE_DIR}/source/*.cpp)
 
 # include headers
-include_directories(${PROJECT_SOURCE_DIR}/include)
+include_directories(${PROJECT_SOURCE_DIR}/include ${PROJECT_SOURCE_DIR}/glm)
 
 # building the project
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
