@@ -38,7 +38,7 @@ jobs:
         wget -O sfml.tar.gz https://www.sfml-dev.org/files/SFML-2.5.1-linux-gcc-64-bit.tar.gz
         mkdir -p sfml
         tar -xzf sfml.tar.gz -C sfml
-        sudo apt-get -y install freeglut3-dev
+        sudo apt-get -y install freeglut3-dev libflac8 libogg0 libopenal1 libvorbis0a libvorbisenc2 libvorbisfile3
 
     - name: CMake
       shell: bash
