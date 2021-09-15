@@ -3,7 +3,7 @@
 
 #include <Small/Core/Scene.hpp>
 #include <SFML/Graphics.hpp>
-#include <SFML/audio.hpp>
+#include <SFML/Audio.hpp>
 #include <Small/Graphics/Animation.hpp>
 #include <string>
 #include <array>
