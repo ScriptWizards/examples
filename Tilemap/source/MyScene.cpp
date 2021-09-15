@@ -5,7 +5,7 @@
 
 MyScene::MyScene(int id) :
     sgl::Scene(id),
-    m_tilemap(sf::Vector2u(10, 7), sf::Vector2u(64, 64), &m_tileset)
+    m_tilemap(sf::Vector2i(16, 16), 16)
 {
     if (!m_tileset.loadFromFile("assets/tile_atlas.png"))
         std::cout << "couldn't load the tile atlas" << std::endl;
